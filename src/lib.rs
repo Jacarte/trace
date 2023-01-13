@@ -353,12 +353,12 @@ fn construct_traced_block(
     };
 
     parse_quote! {{
-        #printer(#entering_format, "", #(#arg_idents,)* depth = DEPTH.with(|d| d.get()));
+        #printer(#entering_format, "", "" depth = DEPTH.with(|d| d.get()));
         #pause_stmt
         DEPTH.with(|d| d.set(d.get() + 1));
         let fn_return_value = #original_block;
         DEPTH.with(|d| d.set(d.get() - 1));
-        #printer(#exiting_format, "", fn_return_value, depth = DEPTH.with(|d| d.get()));
+        #printer(#exiting_format, "", "", depth = DEPTH.with(|d| d.get()));
         #pause_stmt
         fn_return_value
     }}
