@@ -322,7 +322,7 @@ fn construct_traced_block(
     let arg_idents = extract_arg_idents(args, attr_applied, sig);
     let arg_idents_format = arg_idents
         .iter()
-        .map(|arg_ident| format!("{}", arg_ident))
+        .map(|arg_ident| format!("{} = {{:?}}", arg_ident, stringify!(arg_ident)))
         .collect::<Vec<_>>()
         .join(", ");
 
