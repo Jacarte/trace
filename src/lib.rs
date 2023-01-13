@@ -353,7 +353,7 @@ fn construct_traced_block(
     };
 
     parse_quote! {{
-        #printer(#entering_format, "", "" depth = DEPTH.with(|d| d.get()));
+        #printer(#entering_format, "", "", depth = DEPTH.with(|d| d.get()));
         #pause_stmt
         DEPTH.with(|d| d.set(d.get() + 1));
         let fn_return_value = #original_block;
