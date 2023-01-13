@@ -332,8 +332,8 @@ fn construct_traced_block(
         args.prefix_enter, sig.ident, arg_idents_format
     );
     let exiting_format = format!(
-        "{{:depth$}}{} Exiting {}",
-        args.prefix_exit, sig.ident
+        "{{:depth$}}{} Exiting {} = {{:{}?}}",
+        args.prefix_exit, sig.ident, pretty
     );
 
     let pause_stmt = if args.pause {
